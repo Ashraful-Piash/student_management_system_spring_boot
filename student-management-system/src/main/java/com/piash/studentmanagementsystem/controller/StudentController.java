@@ -4,6 +4,7 @@ import com.piash.studentmanagementsystem.entity.Student;
 import com.piash.studentmanagementsystem.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,6 +32,12 @@ public class StudentController {
     @PostMapping("/students")
     public String saveStudent(@ModelAttribute("student") Student student){
         studentService.saveStudent(student);
+        return "students";
+
+    }
+    @DeleteMapping("/students")
+    public String deleteStudent(@ModelAttribute("studfent") Student student){
+        studentService.deleStudent(student);
         return "students";
 
     }
